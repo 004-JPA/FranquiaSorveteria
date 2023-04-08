@@ -21,7 +21,7 @@ public class ProdutoRepository {
 		ResultSet queryResult = null;
 		InfoQuery2 answer = new InfoQuery2();
 		try {
-			query = connection.prepareStatement("select Nome, COUNT(IDproduto), SUM(Preço) from produto join funcionario on produto.IDFuncionario = funcionario.IDFuncionario where nome = ? group by Nome");
+			query = connection.prepareStatement("select funcionario.Nome, COUNT(IDproduto), SUM(Preco) from produto join funcionario on produto.IDFuncionario = funcionario.IDFuncionario where funcionario.Nome = ? group by Nome;");
 			query.setString(1, nome);
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
@@ -40,7 +40,11 @@ public class ProdutoRepository {
 		ResultSet queryResult = null;
 		//String answer = null;
 		try {
-			query = connection.prepareStatement("FALTA A QUERY DO IZAQUE");			
+			query = connection.prepareStatement("FROM produto\r\n"
+					+ "GROUP BY Tipo\r\n"
+					+ "ORDER BY quantity\r\n"
+					+ "DESC LIMIT 1;\r\n"
+					+ "");			
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
 				return new String(queryResult.getString(1));

@@ -24,7 +24,9 @@ public class FornecedorRepository {
 			ResultSet queryResult = null;
 			List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
 			try {
-				query = connection.prepareStatement("FALTA A QUERY DO IZAQUE");
+				query = connection.prepareStatement("	select *\r\n"
+						+ "	from fornecedores\r\n"
+						+ "");
 				//query.setString(a,b); Aqui nao tem parâmetro
 				queryResult = query.executeQuery();
 				while(queryResult.next()) {
@@ -41,7 +43,11 @@ public class FornecedorRepository {
 			ResultSet queryResult = null;
 			List<String> nomes = new ArrayList<String>();
 			try {
-				query = connection.prepareStatement("Quando o Izaque vai terminar a query?");
+				query = connection.prepareStatement("SELECT Nome \r\n"
+						+ "FROM possui \r\n"
+						+ "JOIN fornecedor ON possui.IDFornecedor = fornecedor.IDFornecedor\r\n"
+						+ "WHERE IDLoja = ?;\r\n"
+						+ "");
 				query.setString(1,nomeLoja);// Parâmetro nome loja
 				queryResult = query.executeQuery();
 				while(queryResult.next()) {

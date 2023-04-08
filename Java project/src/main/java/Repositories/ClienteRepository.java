@@ -20,14 +20,14 @@ public class ClienteRepository {
 	}
 
 	//Query 8!
-	public List<String> query8(String valor) {
+	public List<String> query8(double valor) {
 		PreparedStatement query = null;	
 		ResultSet queryResult = null;
 		List<String> nomes = new ArrayList<String>();
 		try {
-			query = connection.prepareStatement("select nome from Cliente c, Encomenda e, Produto p where c.IDcliente = e.IDcliente and p.IDproduto = e.IDproduto\r\n"
-					+ "group by c.IDcliente having SUM(preço) > ?;");
-			query.setString(1, valor); //Substitui o i-ésimo '?' pelo segundo argumento passado.
+			query = connection.prepareStatement("select c.nome from cliente c, encomenda e, produto p where c.IDcliente = e.IDcliente and p.IDproduto = e.IDproduto\r\n"
+					+ "group by c.IDcliente having SUM(preco) > ?;");
+			query.setDouble(1, valor); //Substitui o i-ésimo '?' pelo segundo argumento passado.
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
 				nomes.add(queryResult.getString(1));
