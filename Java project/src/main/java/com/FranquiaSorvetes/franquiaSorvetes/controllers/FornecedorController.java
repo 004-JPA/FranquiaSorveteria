@@ -27,8 +27,8 @@ public class FornecedorController {
 	
 	//Query 5
 	@GetMapping(value="/query5")
-	public ResponseEntity<HashMap<String,String>> query5(@RequestParam int idLoja) { //ResponseEntity: classe responsável por dar resposta na web
-		HashMap<String,String> resposta = fornecedorService.query5(idLoja);
+	public ResponseEntity<List<HashMap<String,String>> > query5(@RequestParam int IDLoja) { //ResponseEntity: classe responsável por dar resposta na web
+		List<HashMap<String,String>> resposta = fornecedorService.query5(IDLoja);
 		return ResponseEntity.ok().body(resposta); //resposta = resultado da chamada de método do service.
 	}
 	//Query 9

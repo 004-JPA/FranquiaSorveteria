@@ -41,6 +41,11 @@ public class InfoQueries1e6 {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	@Override
+	public String toString() {
+		return "InfoQueries1e6 [dataPedido=" + dataPedido + ", valor=" + valor + ", nome=" + nome + "]";
+	}
 	
 	//Getters and setters:
 	

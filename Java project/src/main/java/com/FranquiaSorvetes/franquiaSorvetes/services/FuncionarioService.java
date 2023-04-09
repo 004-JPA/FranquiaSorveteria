@@ -1,6 +1,7 @@
 package com.FranquiaSorvetes.franquiaSorvetes.services;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class FuncionarioService {
 	}
 
 	//Query 4
-	public HashMap<String,Integer> query4(String nomeLoja) {
+	public List<HashMap<String,String>> query4(String nomeLoja) {
 		return funcionarioRepository.query4(nomeLoja);
 	}
 }

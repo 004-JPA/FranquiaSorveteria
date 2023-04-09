@@ -19,17 +19,18 @@ public class ProdutoRepository {
 		this.connection = DBManager.getConnection();
 	}
 	//Query 2!
-	public HashMap<Integer,Double> query2(String nome) {
+	public HashMap<String,Number> query2(String nome) {
 		PreparedStatement query = null;	
 		ResultSet queryResult = null;
-		HashMap<Integer,Double> answer = new HashMap<Integer,Double>();
+		HashMap<String,Number> answer = new HashMap<String,Number>();
 		try {
-			query = connection.prepareStatement("select COUNT(IDproduto), SUM(Preco) from produto join funcionario on produto.IDFuncionario"
-												+ " = funcionario.IDFuncionario where funcionario.Nome = ? group by Nome;");
+			query = connection.prepareStatement("select COUNT(IDproduto), SUM(Preço) from produto join funcionario on produto.IDFuncionario"
+												+ " = funcionario.IDFuncionario where funcionario.Nome = ? group by funcionario.Nome;");
 			query.setString(1, nome);
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
-				answer.put(queryResult.getInt(1),queryResult.getDouble(2));
+				answer.put("Quantidade",queryResult.getInt(1));
+				answer.put("Valor",queryResult.getDouble(2));
 			}
 		} catch (SQLException e) {		
 			throw new RuntimeException (e.getMessage());

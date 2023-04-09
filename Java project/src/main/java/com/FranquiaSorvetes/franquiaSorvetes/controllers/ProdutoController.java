@@ -26,8 +26,8 @@ public class ProdutoController {
 	
 	//Query 2
 	@GetMapping(value="/query2")
-	public ResponseEntity<HashMap<Integer,Double>> query2(@RequestParam String nome) {
-		HashMap<Integer,Double> resposta = produtoService.query2(nome);
+	public ResponseEntity<HashMap<String,Number> > query2(@RequestParam String nome) {
+		HashMap<String,Number> resposta = produtoService.query2(nome);
 		return ResponseEntity.ok().body(resposta); //resposta = resultado da chamada de método do service.		
 	}
 	//Query 3

@@ -1,6 +1,7 @@
 package com.FranquiaSorvetes.franquiaSorvetes.controllers;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,14 +26,14 @@ public class ClienteController {
 	
 	//Query 8
 	@GetMapping(value="/query8")
-	public ResponseEntity<InfoQueries7e8> query8(@RequestParam double valor){ //ResponseEntity: classe responsável por dar resposta na web
-		InfoQueries7e8 resposta = clienteService.query8(valor);
+	public ResponseEntity<List<InfoQueries7e8>> query8(@RequestParam double valor){ //ResponseEntity: classe responsável por dar resposta na web
+		List<InfoQueries7e8> resposta = clienteService.query8(valor);
 		return ResponseEntity.ok().body(resposta); //resposta = resultado da chamada de método do service.
 	}
 	//Query 7
 	@GetMapping(value="/query7")
-	public ResponseEntity<InfoQueries7e8> query7(@RequestParam Date dataLimite){
-		InfoQueries7e8 resposta = clienteService.query7(dataLimite);
+	public ResponseEntity<List<InfoQueries7e8>> query7(@RequestParam Date dataLimite){
+		List<InfoQueries7e8>resposta = clienteService.query7(dataLimite);
 		return ResponseEntity.ok().body(resposta); //resposta = resultado da chamada de método do service.
 	}
 

@@ -1,6 +1,7 @@
 package com.FranquiaSorvetes.franquiaSorvetes.services;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,11 +17,11 @@ public class ClienteService {
 
 	}
 	//Service query 8
-	public InfoQueries7e8 query8(double valor){
+	public List<InfoQueries7e8> query8(double valor){
 		return clienteRepository.query8(valor);
 	}
 	//Service query 7
-	public InfoQueries7e8 query7(Date dataLimite){
+	public List<InfoQueries7e8> query7(Date dataLimite){
 		return clienteRepository.query7(dataLimite);
 	}
 }

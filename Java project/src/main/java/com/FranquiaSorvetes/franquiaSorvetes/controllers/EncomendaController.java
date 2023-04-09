@@ -1,5 +1,7 @@
 package com.FranquiaSorvetes.franquiaSorvetes.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,14 +26,14 @@ public class EncomendaController {
 
 	//Query 1:
 	@GetMapping(value="/query1")
-	public ResponseEntity<InfoQueries1e6> query1(@RequestParam String nomeLoja){
-		InfoQueries1e6 resposta = encomendaService.query1(nomeLoja);
+	public ResponseEntity<List<InfoQueries1e6>> query1(@RequestParam int IDLoja){
+		List<InfoQueries1e6> resposta = encomendaService.query1(IDLoja);
 		return ResponseEntity.ok().body(resposta); //resposta = resultado da chamada de método do service.
 	}
 	//Query 6:
 	@GetMapping(value="/query6")
-	public ResponseEntity<InfoQueries1e6> query6(@RequestParam String nomeCliente){
-		InfoQueries1e6 resposta = encomendaService.query6(nomeCliente);
+	public ResponseEntity<List<InfoQueries1e6>> query6(@RequestParam String nomeCliente){
+		List<InfoQueries1e6> resposta = encomendaService.query6(nomeCliente);
 		return ResponseEntity.ok().body(resposta); //resposta = resultado da chamada de método do service.
 	}
 	

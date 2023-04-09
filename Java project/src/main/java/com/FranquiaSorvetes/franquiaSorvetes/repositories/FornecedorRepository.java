@@ -41,22 +41,25 @@ public class FornecedorRepository {
 			return fornecedores;
 		}
 	//Query 5:
-		public HashMap<String,String> query5(int idLoja) {
+		public List<HashMap<String,String>> query5(int idLoja) {
 			PreparedStatement query = null;	
 			ResultSet queryResult = null;
-			HashMap<String,String> answer = new HashMap<String,String>();
+			List<HashMap<String,String>> answerList = new ArrayList<>();
 			try {
-				query = connection.prepareStatement("select Nome, fornecedor.Endereco from possui join fornecedor on"
+				query = connection.prepareStatement("select Nome, fornecedor.Endereço from possui join fornecedor on"
 													+ " possui.IDFornecedor = fornecedor.IDFornecedor where IDLoja = ?;");
 				query.setInt(1,idLoja);// Parâmetro nome loja
 				queryResult = query.executeQuery();
 				while(queryResult.next()) {
-					answer.put(queryResult.getString(1), queryResult.getString(2));
+					HashMap<String,String> answer = new HashMap<String,String>();
+					answer.put("nome", queryResult.getString(1));
+					answer.put("endereço", queryResult.getString(2));
+					answerList.add(answer);
 				}			
 			} catch (SQLException e) {		
 				throw new RuntimeException (e.getMessage());
 			}					
-			return answer;
+			return answerList;
 		}
 		
 	

@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -20,10 +22,10 @@ public class FuncionarioRepository {
 	}
 	
 	//Metodo que retorna a query 4!
-	public HashMap<String,Integer> query4(String nomeLoja) {
+	public List<HashMap<String,String>> query4(String nomeLoja) {
 		PreparedStatement query = null;	
 		ResultSet queryResult = null;
-		HashMap<String,Integer> answer = new HashMap<String,Integer>();
+		List<HashMap<String,String>> answerList = new ArrayList<>();
 		try {
 			query = connection.prepareStatement("select funcionario.Nome, funcionario.CPF as quantidade_funcionarios"
 												+ " from funcionario, loja where loja.IDloja = funcionario.IDloja and"
@@ -31,11 +33,14 @@ public class FuncionarioRepository {
 			query.setString(1, nomeLoja);
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
-				answer.put(queryResult.getString(1), queryResult.getInt(2));
+				HashMap<String,String> answer = new HashMap<String,String>();
+				answer.put("Nome", queryResult.getString(1));
+				answer.put("CPF", queryResult.getString(2));
+				answerList.add(answer);
 			}			
 		} catch (SQLException e) {		
 			throw new RuntimeException (e.getMessage());
 		}					
-		return answer;
+		return answerList;
 	}
 }

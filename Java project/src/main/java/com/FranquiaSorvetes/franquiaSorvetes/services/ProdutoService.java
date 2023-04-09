@@ -16,7 +16,7 @@ public class ProdutoService {
 
 	}
 	//Query 2
-	public HashMap<Integer,Double> query2(String nome) {
+	public HashMap<String,Number> query2(String nome) {
 		return produtoRepository.query2(nome);
 	}
 	//Query 3
