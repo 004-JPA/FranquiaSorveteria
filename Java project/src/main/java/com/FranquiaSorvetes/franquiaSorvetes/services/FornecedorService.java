@@ -1,5 +1,6 @@
 package com.FranquiaSorvetes.franquiaSorvetes.services;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class FornecedorService {
 	}
 	
 	//Query 5
-	public List<String> query5(int idLoja){
+	public HashMap<String,String> query5(int idLoja){
 		return fornecedorRepository.query5(idLoja);
 	}
 	//Query 9

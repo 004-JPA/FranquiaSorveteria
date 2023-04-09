@@ -1,5 +1,7 @@
 package com.FranquiaSorvetes.franquiaSorvetes.controllers;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.FranquiaSorvetes.franquiaSorvetes.services.ProdutoService;
-import com.FranquiaSorvetes.model.InfoQuery2;
 
 
 
@@ -25,8 +26,8 @@ public class ProdutoController {
 	
 	//Query 2
 	@GetMapping(value="/query2")
-	public ResponseEntity<InfoQuery2> query2(@RequestParam String nome) {
-		InfoQuery2 resposta = produtoService.query2(nome);
+	public ResponseEntity<HashMap<Integer,Double>> query2(@RequestParam String nome) {
+		HashMap<Integer,Double> resposta = produtoService.query2(nome);
 		return ResponseEntity.ok().body(resposta); //resposta = resultado da chamada de método do service.		
 	}
 	//Query 3

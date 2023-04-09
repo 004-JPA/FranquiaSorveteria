@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -40,25 +41,22 @@ public class FornecedorRepository {
 			return fornecedores;
 		}
 	//Query 5:
-		public List<String> query5(int idLoja) {
+		public HashMap<String,String> query5(int idLoja) {
 			PreparedStatement query = null;	
 			ResultSet queryResult = null;
-			List<String> nomes = new ArrayList<String>();
+			HashMap<String,String> answer = new HashMap<String,String>();
 			try {
-				query = connection.prepareStatement("SELECT Nome \r\n"
-						+ "FROM possui \r\n"
-						+ "JOIN fornecedor ON possui.IDFornecedor = fornecedor.IDFornecedor\r\n"
-						+ "WHERE IDLoja = ?;\r\n"
-						+ "");
+				query = connection.prepareStatement("select Nome, fornecedor.Endereco from possui join fornecedor on"
+													+ " possui.IDFornecedor = fornecedor.IDFornecedor where IDLoja = ?;");
 				query.setInt(1,idLoja);// Parâmetro nome loja
 				queryResult = query.executeQuery();
 				while(queryResult.next()) {
-					nomes.add(queryResult.getString(1));
+					answer.put(queryResult.getString(1), queryResult.getString(2));
 				}			
 			} catch (SQLException e) {		
 				throw new RuntimeException (e.getMessage());
 			}					
-			return nomes;
+			return answer;
 		}
 		
 	

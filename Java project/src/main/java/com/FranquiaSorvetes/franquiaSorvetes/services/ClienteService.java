@@ -1,13 +1,12 @@
 package com.FranquiaSorvetes.franquiaSorvetes.services;
 
 import java.sql.Date;
-import java.util.HashMap;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.FranquiaSorvetes.franquiaSorvetes.repositories.ClienteRepository;
+import com.FranquiaSorvetes.model.InfoQueries7e8;
 @Service
 public class ClienteService {
 	@Autowired //Injeção de dependências.
@@ -17,11 +16,11 @@ public class ClienteService {
 
 	}
 	//Service query 8
-	public List<String> query8(double valor){
+	public InfoQueries7e8 query8(double valor){
 		return clienteRepository.query8(valor);
 	}
 	//Service query 7
-	public HashMap<String, Date> query7(Date dataLimite){
+	public InfoQueries7e8 query7(Date dataLimite){
 		return clienteRepository.query7(dataLimite);
 	}
 }

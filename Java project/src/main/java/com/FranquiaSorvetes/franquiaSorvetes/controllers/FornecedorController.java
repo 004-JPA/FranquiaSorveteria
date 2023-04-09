@@ -1,5 +1,6 @@
 package com.FranquiaSorvetes.franquiaSorvetes.controllers;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class FornecedorController {
 	
 	//Query 5
 	@GetMapping(value="/query5")
-	public ResponseEntity<List<String>> query5(@RequestParam int idLoja) { //ResponseEntity: classe responsável por dar resposta na web
-		List<String> resposta = fornecedorService.query5(idLoja);
+	public ResponseEntity<HashMap<String,String>> query5(@RequestParam int idLoja) { //ResponseEntity: classe responsável por dar resposta na web
+		HashMap<String,String> resposta = fornecedorService.query5(idLoja);
 		return ResponseEntity.ok().body(resposta); //resposta = resultado da chamada de método do service.
 	}
 	//Query 9

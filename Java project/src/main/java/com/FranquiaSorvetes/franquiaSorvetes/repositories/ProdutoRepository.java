@@ -4,11 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import org.springframework.stereotype.Repository;
 
 import com.FranquiaSorvetes.franquiaSorvetes.services.DBManager;
-import com.FranquiaSorvetes.model.InfoQuery2;
+
 @Repository
 public class ProdutoRepository {
 	private Connection connection;
@@ -18,18 +19,17 @@ public class ProdutoRepository {
 		this.connection = DBManager.getConnection();
 	}
 	//Query 2!
-	public InfoQuery2 query2(String nome) {
+	public HashMap<Integer,Double> query2(String nome) {
 		PreparedStatement query = null;	
 		ResultSet queryResult = null;
-		InfoQuery2 answer = new InfoQuery2();
+		HashMap<Integer,Double> answer = new HashMap<Integer,Double>();
 		try {
-			query = connection.prepareStatement("select funcionario.Nome, COUNT(IDproduto), SUM(Preço) from produto join funcionario on produto.IDFuncionario = funcionario.IDFuncionario where funcionario.Nome = ? group by Nome;");
+			query = connection.prepareStatement("select COUNT(IDproduto), SUM(Preco) from produto join funcionario on produto.IDFuncionario"
+												+ " = funcionario.IDFuncionario where funcionario.Nome = ? group by Nome;");
 			query.setString(1, nome);
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
-				answer.setNome(queryResult.getString(1));
-				answer.setNumeroVendas(queryResult.getInt(2));
-				answer.setTotal(queryResult.getDouble(3));
+				answer.put(queryResult.getInt(1),queryResult.getDouble(2));
 			}
 		} catch (SQLException e) {		
 			throw new RuntimeException (e.getMessage());
