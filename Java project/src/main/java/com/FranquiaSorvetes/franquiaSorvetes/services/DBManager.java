@@ -1,4 +1,4 @@
-package Services;
+package com.FranquiaSorvetes.franquiaSorvetes.services;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +17,7 @@ public class DBManager {
 		if(conn == null) {
 			Properties connProps = new Properties();
 			connProps.setProperty("user","dev");
-			connProps.setProperty("password", "admin-dev");
+			connProps.setProperty("password", "Admin-dev2023");
 			connProps.setProperty("useSSL","false");
 			try {
 				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FranquiasSorvete", connProps);

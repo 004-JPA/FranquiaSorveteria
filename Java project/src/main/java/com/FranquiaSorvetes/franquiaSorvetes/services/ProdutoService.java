@@ -1,10 +1,11 @@
-package Services;
+package com.FranquiaSorvetes.franquiaSorvetes.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import Model.InfoQuery2;
-import Repositories.ProdutoRepository;
-
+import com.FranquiaSorvetes.franquiaSorvetes.repositories.ProdutoRepository;
+import com.FranquiaSorvetes.model.InfoQuery2;
+@Service
 public class ProdutoService {
 	@Autowired //Injeção de dependências.
 	ProdutoRepository produtoRepository;

@@ -1,12 +1,14 @@
-package Repositories;
+package com.FranquiaSorvetes.franquiaSorvetes.repositories;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import Services.DBManager;
+import org.springframework.stereotype.Repository;
 
+import com.FranquiaSorvetes.franquiaSorvetes.services.DBManager;
+@Repository
 public class FuncionarioRepository {
 	
 		

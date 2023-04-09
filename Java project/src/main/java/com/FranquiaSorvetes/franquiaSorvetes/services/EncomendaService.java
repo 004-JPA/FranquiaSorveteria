@@ -1,12 +1,14 @@
-package Services;
+package com.FranquiaSorvetes.franquiaSorvetes.services;
 
 import java.sql.Date;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import Repositories.EncomendaRepository;
+import com.FranquiaSorvetes.franquiaSorvetes.repositories.EncomendaRepository;
 
+@Service
 public class EncomendaService {
 	@Autowired //Injeção de dependências.
 	EncomendaRepository encomendaRepository;

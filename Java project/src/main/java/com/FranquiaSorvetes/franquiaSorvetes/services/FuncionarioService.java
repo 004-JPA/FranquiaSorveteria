@@ -1,9 +1,10 @@
-package Services;
+package com.FranquiaSorvetes.franquiaSorvetes.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import Repositories.FuncionarioRepository;
-
+import com.FranquiaSorvetes.franquiaSorvetes.repositories.FuncionarioRepository;
+@Service
 public class FuncionarioService {
 	@Autowired //Injeção de dependências.
 	FuncionarioRepository funcionarioRepository;

@@ -1,4 +1,4 @@
-package Model;
+package com.FranquiaSorvetes.model;
 
 public class Produto {
 	int IDproduto;

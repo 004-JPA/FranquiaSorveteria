@@ -1,4 +1,4 @@
-package Repositories;
+package com.FranquiaSorvetes.franquiaSorvetes.repositories;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Fornecedor;
-import Services.DBManager;
+import org.springframework.stereotype.Repository;
 
+import com.FranquiaSorvetes.franquiaSorvetes.services.DBManager;
+import com.FranquiaSorvetes.model.Fornecedor;
+@Repository
 public class FornecedorRepository {
 
 	private Connection connection;
@@ -25,7 +27,7 @@ public class FornecedorRepository {
 			List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
 			try {
 				query = connection.prepareStatement("	select *\r\n"
-						+ "	from fornecedores\r\n"
+						+ "	from fornecedor\r\n"
 						+ "");
 				//query.setString(a,b); Aqui nao tem parâmetro
 				queryResult = query.executeQuery();
@@ -38,7 +40,7 @@ public class FornecedorRepository {
 			return fornecedores;
 		}
 	//Query 5:
-		public List<String> query5(String nomeLoja) {
+		public List<String> query5(int idLoja) {
 			PreparedStatement query = null;	
 			ResultSet queryResult = null;
 			List<String> nomes = new ArrayList<String>();
@@ -48,7 +50,7 @@ public class FornecedorRepository {
 						+ "JOIN fornecedor ON possui.IDFornecedor = fornecedor.IDFornecedor\r\n"
 						+ "WHERE IDLoja = ?;\r\n"
 						+ "");
-				query.setString(1,nomeLoja);// Parâmetro nome loja
+				query.setInt(1,idLoja);// Parâmetro nome loja
 				queryResult = query.executeQuery();
 				while(queryResult.next()) {
 					nomes.add(queryResult.getString(1));
