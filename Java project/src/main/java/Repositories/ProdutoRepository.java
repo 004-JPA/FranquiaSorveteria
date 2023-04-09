@@ -40,11 +40,10 @@ public class ProdutoRepository {
 		ResultSet queryResult = null;
 		//String answer = null;
 		try {
-			query = connection.prepareStatement("FROM produto\r\n"
-					+ "GROUP BY Tipo\r\n"
-					+ "ORDER BY quantity\r\n"
-					+ "DESC LIMIT 1;\r\n"
-					+ "");			
+			query = connection.prepareStatement("SELECT Tipo as quantity FROM produto\r\n"
+					+ "GROUP BY Tipo"
+					+ "ORDER BY quantity"
+					+ "DESC LIMIT 1;");			
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
 				return new String(queryResult.getString(1));

@@ -1,5 +1,7 @@
 package Services;
 
+import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +19,8 @@ public class ClienteService {
 	public List<String> query8(double valor){
 		return clienteRepository.query8(valor);
 	}
-	//...	
+	//Service query 7
+	public HashMap<String, Date> query7(Date dataLimite){
+		return clienteRepository.query7(dataLimite);
+	}
 }
