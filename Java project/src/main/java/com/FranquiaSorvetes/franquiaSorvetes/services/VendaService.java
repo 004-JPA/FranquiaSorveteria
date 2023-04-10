@@ -5,14 +5,14 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.FranquiaSorvetes.franquiaSorvetes.repositories.ProdutoRepository;
+import com.FranquiaSorvetes.franquiaSorvetes.repositories.VendaRepository;
 
 @Service
-public class ProdutoService {
+public class VendaService {
 	@Autowired //Injeção de dependências.
-	ProdutoRepository produtoRepository;
+	VendaRepository produtoRepository;
 	
-	public ProdutoService() {
+	public VendaService() {
 
 	}
 	//Query 2

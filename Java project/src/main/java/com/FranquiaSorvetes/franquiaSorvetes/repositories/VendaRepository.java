@@ -11,11 +11,11 @@ import org.springframework.stereotype.Repository;
 import com.FranquiaSorvetes.franquiaSorvetes.services.DBManager;
 
 @Repository
-public class ProdutoRepository {
+public class VendaRepository {
 	private Connection connection;
 	
 		
-	public ProdutoRepository() {
+	public VendaRepository() {
 		this.connection = DBManager.getConnection();
 	}
 	//Query 2!
@@ -24,8 +24,12 @@ public class ProdutoRepository {
 		ResultSet queryResult = null;
 		HashMap<String,Number> answer = new HashMap<String,Number>();
 		try {
-			query = connection.prepareStatement("select COUNT(IDproduto), SUM(Preço) from produto join funcionario on produto.IDFuncionario"
-												+ " = funcionario.IDFuncionario where funcionario.Nome = ? group by funcionario.Nome;");
+			query = connection.prepareStatement("SELECT COUNT(produto.IDproduto), SUM(Preço) FROM venda \r\n"
+					+ "JOIN funcionario ON venda.IDFuncionario = funcionario.IDFuncionario \r\n"
+					+ "JOIN produto ON produto.IDProduto=venda.IDProduto \r\n"
+					+ "WHERE funcionario.Nome = ?\r\n"
+					+ "GROUP BY funcionario.Nome;\r\n"
+					+ "");
 			query.setString(1, nome);
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
@@ -43,10 +47,7 @@ public class ProdutoRepository {
 		ResultSet queryResult = null;
 		//String answer = null;
 		try {
-			query = connection.prepareStatement("SELECT Tipo as quantity FROM produto "
-					+ "GROUP BY Tipo "
-					+ "ORDER BY quantity "
-					+ "DESC LIMIT 1;");			
+			query = connection.prepareStatement("select Tipo as quantity from produto p, venda v where  p.IDProduto = v.IDProduto group by Tipo order by quantity desc limit 1;");			
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
 				return new String(queryResult.getString(1));

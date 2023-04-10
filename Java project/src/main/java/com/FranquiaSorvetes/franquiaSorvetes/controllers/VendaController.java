@@ -10,20 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.FranquiaSorvetes.franquiaSorvetes.services.ProdutoService;
+import com.FranquiaSorvetes.franquiaSorvetes.services.VendaService;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/produto") //Classe responsável por todas as requisições da rota /produto.
-public class ProdutoController {
+@RequestMapping(value = "/venda") //Classe responsável por todas as requisições da rota /produto.
+public class VendaController {
 	//Definir métodos para subrotas: cada query da rota.
 	@Autowired //Injeção de dependências.
-	ProdutoService produtoService;
+	VendaService produtoService;
 	
-	public ProdutoController() {
+	public VendaController() {
 
 	}
-	
 	//Query 2
 	@GetMapping(value="/query2")
 	public ResponseEntity<HashMap<String,Number> > query2(@RequestParam String nome) {
