@@ -25,13 +25,12 @@ public class EncomendaRepository {
 		ResultSet queryResult = null;
 		List<InfoQueries1e6> encomendasLoja = new ArrayList<>();
 		try {
-			query = connection.prepareStatement("SELECT cliente.Nome, encomenda.DataPedido, SUM(produto.Preço) \r\n"
-					+ "FROM encomenda JOIN cliente ON encomenda.IDCliente = cliente.IDCliente \r\n"
-					+ "JOIN loja ON encomenda.IDLoja = loja.IDLoja\r\n"
-					+ "JOIN produto ON encomenda.IDProduto = produto.IDProduto \r\n"
-					+ "WHERE loja.IDLoja = ?\r\n"
-					+ "GROUP BY cliente.nome, encomenda.DataPedido;\r\n"
-					+ "");
+			query = connection.prepareStatement("SELECT cliente.Nome, encomenda.DataPedido, SUM(produto.Preço) "
+					+ "FROM encomenda JOIN cliente ON encomenda.IDCliente = cliente.IDCliente "
+					+ "JOIN loja ON encomenda.IDLoja = loja.IDLoja "
+					+ "JOIN produto ON encomenda.IDProduto = produto.IDProduto "
+					+ "WHERE loja.IDLoja = ? "
+					+ "GROUP BY cliente.nome, encomenda.DataPedido;\r\n");
 			query.setInt(1,IDLoja);// Parâmetro nome do cliente
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {

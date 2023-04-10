@@ -30,9 +30,9 @@ public class ClienteRepository {
 		ResultSet queryResult = null;
 		List<InfoQuery8> answerList = new ArrayList<>();
 		try {
-			query = connection.prepareStatement("select c.nome, c.Email, SUM(preco) from cliente c, encomenda e, produto p where c.IDcliente ="
+			query = connection.prepareStatement("select c.nome, c.Email, SUM(Preço) from cliente c, encomenda e, produto p where c.IDcliente ="
 												+ " e.IDcliente and p.IDproduto = e.IDproduto group by c.IDcliente"
-												+ " having SUM(preco) > ?;");
+												+ " having SUM(Preço) > ?;");
 			query.setDouble(1, valor); //Substitui o i-ésimo '?' pelo segundo argumento passado.
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
