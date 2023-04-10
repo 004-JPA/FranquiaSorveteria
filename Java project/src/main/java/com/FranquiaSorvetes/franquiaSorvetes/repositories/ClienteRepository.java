@@ -13,7 +13,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.FranquiaSorvetes.franquiaSorvetes.services.DBManager;
-import com.FranquiaSorvetes.model.InfoQueries7e8;
+import com.FranquiaSorvetes.model.InfoQuery7;
+import com.FranquiaSorvetes.model.InfoQuery8;
 
 @Repository
 public class ClienteRepository {
@@ -24,19 +25,21 @@ public class ClienteRepository {
 	}
 	
 	//Query 8!
-	public List<InfoQueries7e8> query8(double valor) {
+	public List<InfoQuery8> query8(double valor) {
 		PreparedStatement query = null;	
 		ResultSet queryResult = null;
-		List<InfoQueries7e8> answerList = new ArrayList<>();
+		List<InfoQuery8> answerList = new ArrayList<>();
 		try {
-			query = connection.prepareStatement("select c.nome, c.Email, e.DataPedido from cliente c, encomenda e, produto p where c.IDcliente = e.IDcliente and p.IDproduto = e.IDproduto group by c.IDcliente, e.DataPedido having SUM(Preço) > ?;");
+			query = connection.prepareStatement("select c.nome, c.Email, SUM(preco) from cliente c, encomenda e, produto p where c.IDcliente ="
+												+ " e.IDcliente and p.IDproduto = e.IDproduto group by c.IDcliente"
+												+ " having SUM(preco) > ?;");
 			query.setDouble(1, valor); //Substitui o i-ésimo '?' pelo segundo argumento passado.
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
-				InfoQueries7e8 answer = new InfoQueries7e8();
-				answer.setNomeCliente(queryResult.getString(1)); 
+				InfoQuery8 answer = new InfoQuery8();
+				answer.setNome(queryResult.getString(1)); 
 				answer.setEmail(queryResult.getString(2));
-				answer.setDataPedido(queryResult.getDate(3));
+				answer.setValor(queryResult.getDouble(3));
 				answerList.add(answer);
 			}			
 		} catch (SQLException e) {		
@@ -47,10 +50,10 @@ public class ClienteRepository {
 	
 	
 	//Query 7!
-	public List<InfoQueries7e8> query7(Date dataLimite) {
+	public List<InfoQuery7> query7(Date dataLimite) {
 		PreparedStatement query = null;	
 		ResultSet queryResult = null;
-		List<InfoQueries7e8> encomendas = new ArrayList<>();
+		List<InfoQuery7> encomendas = new ArrayList<>();
 		
 		try {
 			query = connection.prepareStatement("SELECT cliente.Nome, cliente.Email, encomenda.DataPedido \r\n"
@@ -61,7 +64,7 @@ public class ClienteRepository {
 			query.setDate(1, dataLimite); //Substitui o i-ésimo '?' pelo segundo argumento passado.
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
-				InfoQueries7e8 encomenda = new InfoQueries7e8();
+				InfoQuery7 encomenda = new InfoQuery7();
 				encomenda.setNomeCliente(queryResult.getString(1));
 				encomenda.setEmail(queryResult.getString(2));
 				encomenda.setDataPedido(queryResult.getDate(3));

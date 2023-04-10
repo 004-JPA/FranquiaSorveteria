@@ -2,19 +2,19 @@ package com.FranquiaSorvetes.model;
 
 import java.sql.Date;
 
-public class InfoQueries7e8 {
+public class InfoQuery7 {
 	String nomeCliente;
 	String email;
 	Date dataPedido;
 	
-	public InfoQueries7e8(String nomeCliente, String email, Date dataPedido) {
+	public InfoQuery7(String nomeCliente, String email, Date dataPedido) {
 		super();
 		this.nomeCliente = nomeCliente;
 		this.email = email;
 		this.dataPedido = dataPedido;
 	}
 	
-	public InfoQueries7e8() {
+	public InfoQuery7() {
 	
 	}
 //Getters e setters:
