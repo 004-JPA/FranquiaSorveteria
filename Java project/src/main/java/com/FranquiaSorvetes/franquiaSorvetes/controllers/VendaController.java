@@ -1,6 +1,7 @@
 package com.FranquiaSorvetes.franquiaSorvetes.controllers;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +32,8 @@ public class VendaController {
 	}
 	//Query 3
 	@GetMapping(value="/query3")
-	public ResponseEntity<String> query3() {
-		String resposta = produtoService.query3();
+	public ResponseEntity<Map<String, String>> query3() {
+		Map<String, String>resposta = produtoService.query3();
 		return ResponseEntity.ok().body(resposta); //resposta = resultado da chamada de método do service.
 	}	
 }
