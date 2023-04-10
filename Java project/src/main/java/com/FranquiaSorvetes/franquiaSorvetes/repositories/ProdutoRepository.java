@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -38,7 +39,7 @@ public class ProdutoRepository {
 		return answer;
 	}
 	//Query 3:
-	public String query3() {
+	public Map<String, String> query3() {
 		PreparedStatement query = null;	
 		ResultSet queryResult = null;
 		//String answer = null;
@@ -49,7 +50,9 @@ public class ProdutoRepository {
 					+ "DESC LIMIT 1;");			
 			queryResult = query.executeQuery();
 			while(queryResult.next()) {
-				return new String(queryResult.getString(1));
+				Map<String, String> answer = new HashMap<>();
+				answer.put("tipo", queryResult.getString(1));
+				return answer;
 				//answer = queryResult.getString(1);				
 			}			
 		} catch (SQLException e) {		

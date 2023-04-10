@@ -1,6 +1,7 @@
 package com.FranquiaSorvetes.franquiaSorvetes.services;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class ProdutoService {
 		return produtoRepository.query2(nome);
 	}
 	//Query 3
-	public String query3() {
+	public Map<String, String> query3() {
 		return produtoRepository.query3();
 	}
 }
