@@ -47,7 +47,9 @@ public class FornecedorRepository {
 			ResultSet queryResult = null;
 			List<HashMap<String,String>> answerList = new ArrayList<>();
 			try {
-				query = connection.prepareStatement("select Nome, fornecedor.Endereco from possui join fornecedor on possui.IDFornecedor = fornecedor.IDFornecedor where loja.nome= ?;");
+				query = connection.prepareStatement("select fornecedor.Nome, fornecedor.Endereço from possui "
+						+ "join fornecedor on possui.IDFornecedor = fornecedor.IDFornecedor join loja on possui.IDLoja = loja.IDLoja "
+						+ "where loja.Nome= ?;");
 				query.setString(1,endereco);// Parâmetro nome loja
 				queryResult = query.executeQuery();
 				while(queryResult.next()) {
