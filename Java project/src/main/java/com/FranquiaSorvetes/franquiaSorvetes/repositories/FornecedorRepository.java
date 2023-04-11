@@ -40,6 +40,7 @@ public class FornecedorRepository {
 			}					
 			return fornecedores;
 		}
+		
 	//Query 5:
 		public List<HashMap<String,String>> query5(String endereco) {
 			PreparedStatement query = null;	
@@ -52,7 +53,7 @@ public class FornecedorRepository {
 				while(queryResult.next()) {
 					HashMap<String,String> answer = new HashMap<String,String>();
 					answer.put("nome", queryResult.getString(1));
-					answer.put("endereço", queryResult.getString(2));
+					answer.put("endereco", queryResult.getString(2));
 					answerList.add(answer);
 				}			
 			} catch (SQLException e) {		
