@@ -41,14 +41,13 @@ public class FornecedorRepository {
 			return fornecedores;
 		}
 	//Query 5:
-		public List<HashMap<String,String>> query5(int idLoja) {
+		public List<HashMap<String,String>> query5(String endereco) {
 			PreparedStatement query = null;	
 			ResultSet queryResult = null;
 			List<HashMap<String,String>> answerList = new ArrayList<>();
 			try {
-				query = connection.prepareStatement("select Nome, fornecedor.Endereço from possui join fornecedor on"
-													+ " possui.IDFornecedor = fornecedor.IDFornecedor where IDLoja = ?;");
-				query.setInt(1,idLoja);// Parâmetro nome loja
+				query = connection.prepareStatement("select Nome, fornecedor.Endereco from possui join fornecedor on possui.IDFornecedor = fornecedor.IDFornecedor where loja.nome= ?;");
+				query.setString(1,endereco);// Parâmetro nome loja
 				queryResult = query.executeQuery();
 				while(queryResult.next()) {
 					HashMap<String,String> answer = new HashMap<String,String>();

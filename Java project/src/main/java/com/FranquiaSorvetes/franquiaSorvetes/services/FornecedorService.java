@@ -19,8 +19,8 @@ public class FornecedorService {
 	}
 	
 	//Query 5
-	public List<HashMap<String,String>> query5(int idLoja){
-		return fornecedorRepository.query5(idLoja);
+	public List<HashMap<String,String>> query5(String nomeLoja){
+		return fornecedorRepository.query5(nomeLoja);
 	}
 	//Query 9
 	public List<Fornecedor> query9(){
