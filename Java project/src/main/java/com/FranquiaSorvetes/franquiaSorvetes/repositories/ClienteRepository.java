@@ -59,7 +59,8 @@ public class ClienteRepository {
 			query = connection.prepareStatement("SELECT cliente.Nome, cliente.Email, encomenda.DataPedido \r\n"
 					+ "FROM encomenda\r\n"
 					+ "JOIN cliente ON encomenda.IDCliente = cliente.IDCliente \r\n"
-					+ "WHERE DataPedido > ?; \r\n"
+					+ "WHERE DataPedido > ? "
+					+ "GROUP BY cliente.Nome, cliente.Email, encomenda.DataPedido;"
 					+ "");
 			query.setDate(1, dataLimite); //Substitui o i-ésimo '?' pelo segundo argumento passado.
 			queryResult = query.executeQuery();

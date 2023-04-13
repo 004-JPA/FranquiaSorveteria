@@ -16,8 +16,8 @@ public class DBManager {
 		
 		if(conn == null) {
 			Properties connProps = new Properties();
-			connProps.setProperty("user","dev");
-			connProps.setProperty("password", "Admin-dev2023");
+			connProps.setProperty("user","garsoft-dev");
+			connProps.setProperty("password", "Garsoft-2023");
 			connProps.setProperty("useSSL","false");
 			try {
 				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FranquiasSorvete", connProps);
