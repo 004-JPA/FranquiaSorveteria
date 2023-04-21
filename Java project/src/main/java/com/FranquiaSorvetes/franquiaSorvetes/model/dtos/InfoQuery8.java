@@ -1,4 +1,4 @@
-package com.FranquiaSorvetes.model;
+package com.FranquiaSorvetes.franquiaSorvetes.model.dtos;
 
 public class InfoQuery8 {
 	String nome;

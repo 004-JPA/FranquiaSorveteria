@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.FranquiaSorvetes.franquiaSorvetes.model.Fornecedor;
 import com.FranquiaSorvetes.franquiaSorvetes.repositories.FornecedorRepository;
-import com.FranquiaSorvetes.model.Fornecedor;
 @Service
 public class FornecedorService {
 	@Autowired //Injeção de dependências.

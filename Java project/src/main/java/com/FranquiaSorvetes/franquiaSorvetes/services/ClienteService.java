@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.FranquiaSorvetes.franquiaSorvetes.model.dtos.InfoQuery7;
+import com.FranquiaSorvetes.franquiaSorvetes.model.dtos.InfoQuery8;
 import com.FranquiaSorvetes.franquiaSorvetes.repositories.ClienteRepository;
-import com.FranquiaSorvetes.model.InfoQuery7;
-import com.FranquiaSorvetes.model.InfoQuery8;
 @Service
 public class ClienteService {
 	@Autowired //Injeção de dependências.

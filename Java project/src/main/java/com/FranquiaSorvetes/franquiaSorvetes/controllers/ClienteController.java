@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.FranquiaSorvetes.franquiaSorvetes.model.dtos.InfoQuery7;
+import com.FranquiaSorvetes.franquiaSorvetes.model.dtos.InfoQuery8;
 import com.FranquiaSorvetes.franquiaSorvetes.services.ClienteService;
-import com.FranquiaSorvetes.model.InfoQuery7;
-import com.FranquiaSorvetes.model.InfoQuery8;
 
 @CrossOrigin
 @RestController

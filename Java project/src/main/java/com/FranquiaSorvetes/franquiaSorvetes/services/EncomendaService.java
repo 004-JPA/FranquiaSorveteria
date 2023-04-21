@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.FranquiaSorvetes.franquiaSorvetes.model.InfoQueries1e6;
 import com.FranquiaSorvetes.franquiaSorvetes.repositories.EncomendaRepository;
-import com.FranquiaSorvetes.model.InfoQueries1e6;
 
 @Service
 public class EncomendaService {

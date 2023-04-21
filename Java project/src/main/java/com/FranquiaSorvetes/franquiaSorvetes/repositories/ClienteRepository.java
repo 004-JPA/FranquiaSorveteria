@@ -12,9 +12,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.FranquiaSorvetes.franquiaSorvetes.model.dtos.InfoQuery7;
+import com.FranquiaSorvetes.franquiaSorvetes.model.dtos.InfoQuery8;
 import com.FranquiaSorvetes.franquiaSorvetes.services.DBManager;
-import com.FranquiaSorvetes.model.InfoQuery7;
-import com.FranquiaSorvetes.model.InfoQuery8;
 
 @Repository
 public class ClienteRepository {

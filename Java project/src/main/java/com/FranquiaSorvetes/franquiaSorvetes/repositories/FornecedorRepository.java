@@ -10,8 +10,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.FranquiaSorvetes.franquiaSorvetes.model.Fornecedor;
 import com.FranquiaSorvetes.franquiaSorvetes.services.DBManager;
-import com.FranquiaSorvetes.model.Fornecedor;
 @Repository
 public class FornecedorRepository {
 

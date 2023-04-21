@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.FranquiaSorvetes.franquiaSorvetes.model.InfoQueries1e6;
 import com.FranquiaSorvetes.franquiaSorvetes.services.EncomendaService;
-import com.FranquiaSorvetes.model.InfoQueries1e6;
 
 @CrossOrigin
 @RestController
