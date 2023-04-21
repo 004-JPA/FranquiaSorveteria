@@ -1,4 +1,4 @@
-package com.FranquiaSorvetes.franquiaSorvetes.model;
+package com.FranquiaSorvetes.franquiaSorvetes.model.entities;
 
 public class Funcionario {
 	int IDfuncionario, CPF;

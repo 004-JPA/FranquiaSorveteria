@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.FranquiaSorvetes.franquiaSorvetes.model.InfoQueries1e6;
+import com.FranquiaSorvetes.franquiaSorvetes.model.dtos.InfoQueries1e6;
 import com.FranquiaSorvetes.franquiaSorvetes.services.DBManager;
 @Repository
 public class EncomendaRepository {
