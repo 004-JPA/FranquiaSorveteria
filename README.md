@@ -10,6 +10,8 @@ Este sistema foi desenvolvido como projeto final da disciplina PCS3623 - Banco d
 
 ## Diagrama entidade-relação do banco de dados
 
+![Entidade-Relacao](https://raw.githubusercontent.com/004-JPA/FranquiaSorveteria/main/imagens/Entidade%20relacao.drawio.png)
+
 
 ## Arquitetura da aplicação
 A arquitetura geral da solução conta com 4 pacotes principais, cujas responsabilidades se complementam para implementação dos requisitos definidos. As classes do sistemas estão divididas como:
@@ -20,6 +22,8 @@ A arquitetura geral da solução conta com 4 pacotes principais, cujas responsab
 - Services: classes responsáveis pela aplicação da lógica de negócios. No escopo da nossa aplicação, são acionadas pelos controllers e acionam os repositories. Responsabilidade também do gerenciamento de conexões lógicas com o banco de dados utilizando o driver do SGBD.
 
 Como foi descrito acima, esta API foi feita apenas para consumo dos dados inseridos através do SGDB, podendo ser expandida para todas as operações CRUD, visto que os componentes model, service e repositories já estão implementados.
+
+![Arquitetura](https://raw.githubusercontent.com/004-JPA/FranquiaSorveteria/main/imagens/Arquitetura.drawio%20(1).png)
 
 ## Consultas efetuadas
 Dado o escopo da disciplina e o domínio do problema abordado, definiram-se algumas consultas a serem efetuadas no banco de dados. As consultas foram desenvolvidas utilizando a linguagem SQL, e podem ser vistas nas classes do pacote *repositories*, onde cada classe possui as consultas a serem feitas nas tabelas de suas entidades. Definiu-se que seriam executadas as seguintes consultas:
